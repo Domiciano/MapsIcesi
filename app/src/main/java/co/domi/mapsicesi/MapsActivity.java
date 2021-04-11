@@ -66,7 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 2, this);
+        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 2, this);
 
         setInitialPos();
 
@@ -76,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         addBtn.setOnClickListener(
                 (v)->{
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(me.getPosition(), 8));
+
                 }
         );
 
@@ -95,6 +95,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         );
 
 
+        Toast.makeText(this, "Espere mientras lo ubicamos (NETWORK PROVIDER)", Toast.LENGTH_LONG).show();
     }
 
 
